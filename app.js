@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 require('express-async-errors');
 const app = express();
+
 //const path = require('path');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -10,14 +11,17 @@ const bodyParser = require('body-parser');
 const connectDB = require('./db/connect');
 
 //Routers
+const userRegisterRouter = require('./routes/userRegisterRouter');
+
 
 //Middleware
 app.use(cors()); //Enable CORS
-app.use(bodyParser.json()); //Parse incoming request bodies
+//app.use(bodyParser.json()); //Parse incoming request bodies
 app.use(express.json()); //Parse JSON data
 app.use(express.static('public')); //Serve static files from the 'public' directory
 
 //Routes
+app.use('/api/v1/Reg', userRegisterRouter);
 
 //Error Handler
 //const errorHandlerMiddleware = require('./middleware/error-handler');
