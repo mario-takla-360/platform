@@ -12,6 +12,7 @@ const connectDB = require('./db/connect');
 
 //Routers
 const userRegisterRouter = require('./routes/userRegisterRouter');
+const userLoginRouter = require('./routes/userLoginRouter');
 
 
 //Middleware
@@ -22,6 +23,7 @@ app.use(express.static('public')); //Serve static files from the 'public' direct
 
 //Routes
 app.use('/api/v1/Reg', userRegisterRouter);
+app.use('/api/v1/Login', userLoginRouter);
 
 //Error Handler
 //const errorHandlerMiddleware = require('./middleware/error-handler');
